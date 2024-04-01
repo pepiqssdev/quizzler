@@ -24,38 +24,38 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  // List<Icon> scoreKepper = [];
-  // QuizBrain quizBrain = QuizBrain();
-  // void CorrectAnswer(bool userPinkChecker) {
-  //   bool Answer = quizBrain.getCorrectAnswer();
-  //
-  //   setState(() {
-  //     if (quizBrain.isFinished() == true) {
-  //
-  //       Alert(
-  //               context: context,
-  //               title: 'Finished',
-  //               desc: 'you are in the end of the quiz')
-  //           .show();
-  //       quizBrain.reset();
-  //       scoreKepper = [];
-  //     } else {
-  //       if (userPinkChecker == Answer) {
-  //         scoreKepper.add(Icon(
-  //           Icons.check,
-  //           color: Colors.green,
-  //         ));
-  //       } else {
-  //         scoreKepper.add(Icon(
-  //           Icons.close,
-  //           color: Colors.red,
-  //         ));
-  //
-  //       }
-  //       quizBrain.nextQuestion();
-  //     }
-  //   });
-  // }
+  List<Icon> scoreKepper = [];
+  QuizBrain quizBrain = QuizBrain();
+  void CorrectAnswer(bool userPinkChecker) {
+    bool Answer = quizBrain.getCorrectAnswer();
+
+    setState(() {
+      if (quizBrain.isFinished() == true) {
+
+        Alert(
+                context: context,
+                title: 'Finished',
+                desc: 'you are in the end of the quiz')
+            .show();
+        quizBrain.reset();
+        scoreKepper = [];
+      } else {
+        if (userPinkChecker == Answer) {
+          scoreKepper.add(Icon(
+            Icons.check,
+            color: Colors.green,
+          ));
+        } else {
+          scoreKepper.add(Icon(
+            Icons.close,
+            color: Colors.red,
+          ));
+
+        }
+        quizBrain.nextQuestion();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
